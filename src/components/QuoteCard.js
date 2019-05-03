@@ -11,6 +11,7 @@ const QuoteCard = ({ quote, removeQuote, upvoteQuote, downvoteQuote }) =>
         <blockquote className="card-blockquote">
           {/* <p>{Render Quote Content}</p> */}
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
+           { quote.content } - { quote.author}
         </blockquote>
       </div>
       <div className="float-right">
