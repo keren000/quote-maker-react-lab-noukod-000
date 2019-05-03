@@ -18,7 +18,6 @@ class QuoteForm extends Component {
       [event.target.name]: event.target.value
     })
   }	
-  
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
