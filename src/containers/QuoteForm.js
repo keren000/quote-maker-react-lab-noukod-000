@@ -7,17 +7,17 @@ import { bindActionCreators } from 'redux';
 class QuoteForm extends Component {
 
   state = {
+    content: '',
+    author: ''
     //set up a controlled form with internal state
-      content: '',
-      author: ''
   }
 
   handleOnChange = event => {
     // Handle Updating Component State
-     this.setState({
+    this.setState({
       [event.target.name]: event.target.value
     })
-  }	
+  }
 
   handleOnSubmit = event => {
     // Handle Form Submit event default
@@ -32,13 +32,15 @@ class QuoteForm extends Component {
       votes: 0
     };
 
-     this.props.addQuote(quote);
+    this.props.addQuote(quote);
 
-     this.setState({
+    this.setState({
       content: '',
       author: ''
     })
   }
+
+
 
   render() {
     return (
@@ -54,7 +56,8 @@ class QuoteForm extends Component {
                       <textarea
                         className="form-control"
                         name="content"
-                        value={this.state.content} onChange={this.handleOnChange}
+                        value={this.state.content}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -64,7 +67,9 @@ class QuoteForm extends Component {
                       <input
                         className="form-control"
                         type="text"
+                        name="author"
                         value={this.state.author}
+                        onChange={this.handleOnChange}
                       />
                     </div>
                   </div>
@@ -83,5 +88,11 @@ class QuoteForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    addQuote: addQuote
+  }, dispatch)
+}
+
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+export default connect(null, mapDispatchToProps)(QuoteForm);
