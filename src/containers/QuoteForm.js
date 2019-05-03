@@ -40,8 +40,6 @@ class QuoteForm extends Component {
     })
   }
 
-
-
   render() {
     return (
       <div className="container">
